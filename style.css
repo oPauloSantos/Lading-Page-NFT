@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&family=Quicksand:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-color: #000;
+    background-image: url(/assets/Background.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar */
+li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: orange;
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.navbar .logo a{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.navbar .logo img {
+    width: 1.5rem;
+}
+
+.navbar .links {
+    display: flex; /* faz os itens ficarem lado a lado e não empilhados */ 
+    gap: 3rem;
+}
+
+.navbar .toggle_btn { /* barra hamburger, apenas para dispositivos pequenos */
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* faz o icon sumir */
+}
+
+.action_btn {
+    background: linear-gradient(110deg, rgba(255,172,48,1) 0%, rgba(253,1,167,1) 70%);
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 100;
+    cursor: pointer;
+    transition: scale .2 ease;
+}
+
+.action_btn:hover{
+    scale: 1.05;
+    color: #fff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+/* Dropdown_menu */
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;  
+    top: 55px;
+    height: 0;
+    width: 300px;
+    background: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+height: 230px;
+}
+
+.dropdown_menu li{
+    padding: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.lading{
+    padding-top: 60px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 400px;
+}
+
+/* Título */
+.tittle { 
+    display: flex; 
+    align-items: left; 
+    text-align: left; 
+    flex-direction: column;
+    justify-content: left;
+    color: #fff;
+    margin-top: 3.75rem;
+    }
+
+.tittle h1{
+    font-size: 3rem; 
+    margin-bottom: 1rem;
+    font-family: 'DM Mono', monospace;
+    }
+
+.tittle p{
+        font-weight: 100;
+        line-height: 1.5;
+    }
+
+.glassBox {
+  width: 100%;
+  height: 400px;
+  max-width: 330px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); */
+  padding: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  rotate: 5deg;
+}
+.glassBox, .glassBox * {
+  box-sizing: border-box;
+  transition: 400ms;
+}
+.glassBox__imgBox img {
+  display: block;
+  width: 280px;
+  border-radius: 8px;
+}
+.glassBox__title {
+  text-align: center;
+  margin-top: 15px;
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.infos {
+    padding-top: 15px;
+    display: flex; /* Adicione display: flex; para criar um contêiner flexível */
+    justify-content: space-around; /* Adicione justify-content: space-around; para criar espaçamento igual entre os elementos */
+    width: 100%;
+  }
+
+.glassBox__content {
+    color: #FFF;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    font-family: 'DM Mono', monospace;
+}
+.glassBox:hover .glassBox__imgBox {
+  transform: translateY(-15px);
+}
+.glassBox:hover .glassBox__imgBox img {
+  transform: translate(00px, -12px) scale(1.1);
+}
+
+/* Responsive Design */
+ @media (max-width: 770px) { 
+    .navbar .links,
+    .navbar .action_btn { 
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+
+    section#tittle{
+        margin-left: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}
